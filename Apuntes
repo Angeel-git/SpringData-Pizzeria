@@ -6,3 +6,14 @@ el paquete "com.platzi.piza.persistence" es donde vamos a guardar td la info de 
 el paquete "com.platzi.piza.service" es para incluir nuestros servicios
 
 el paquete"com.platzi.piza.webb.controller" es donde tendremos nuestros controladores
+
+--------------------------------------------------------------------------------------------------------------
+
+En la clase "application.properties", lo primero que hacemos es conectar a la base de datos de MYSQL
+
+En esta clase, a la hora de decile que tipo de relacion va a tener la api con la bd tenemos:
+                (create - Crea el esquema de la bd y destruye td lo que esté guardado
+                 update - Crea lo que necesite en el esquema, pero no elimina lo que ya tenemos guardado
+                 create-drop - Crea y destruye el esqema cuando se cierra sesion en la app
+                 none - Solo mueve la info de la bd
+                 validate - No hace ninguna cambio estructural, solo valida si la bd es valida o no)
