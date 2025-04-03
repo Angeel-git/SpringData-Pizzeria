@@ -1,0 +1,8 @@
+el paquete "com.platzi.piza.persistence" es donde vamos a guardar td la info de la bd
+        En el paquete persistence, vamos a generar otros 2 paquetes para poner los repositorios y entidades
+            "com.platzi.piza.persistence.entity" - Para las entidades
+            "com.platzi.piza.persistence.repository" - Para los repositorios
+
+el paquete "com.platzi.piza.service" es para incluir nuestros servicios
+
+el paquete"com.platzi.piza.webb.controller" es donde tendremos nuestros controladores
