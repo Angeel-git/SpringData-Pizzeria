@@ -1,4 +1,8 @@
-el paquete "com.platzi.piza.persistence" es donde vamos a guardar td la info de la bd
+                    Spring usa hibernate por defecto para trabajar con JPA
+
+--------------------------------------------------------------------------------------------------------------
+
+El paquete "com.platzi.piza.persistence" es donde vamos a guardar td la info de la bd
         En el paquete persistence, vamos a generar otros 2 paquetes para poner los repositorios y entidades
             "com.platzi.piza.persistence.entity" - Para las entidades
             "com.platzi.piza.persistence.repository" - Para los repositorios
@@ -17,3 +21,34 @@ En esta clase, a la hora de decile que tipo de relacion va a tener la api con la
                  create-drop - Crea y destruye el esqema cuando se cierra sesion en la app
                  none - Solo mueve la info de la bd
                  validate - No hace ninguna cambio estructural, solo valida si la bd es valida o no)
+
+--------------------------------------------------------------------------------------------------------------
+
+                                CREACION DE LOS ENTITIES CON JPA
+En las clases que se quieren mapear a la base de datos, lo primero que hay que hacer es poner la notacion
+ "@Entity" - Para indicar que va a ser una tabla de la base de datos
+
+Tambien podemos usar las notaciones "@Getter  @Setter  @NoArgsConstructor" para autogenerar los Getters,
+ los Setters y el constructor vacio que necesita hibernate sin tener que escribir el codigo
+
+En caso de que exista una relacion con 1 PK compuesta, hay que crear una clase que contenga las PK
+        y luego usar la notacion "@EmbeddedId" para indicar que es una PK compuesta
+        y "@MapsId" para indicar que es una relacion con otra tabla
+                             (Por ejemplo, en la clase OrderItemIdentity)
+
+--------------------------------------------------------------------------------------------------------------
+
+                                        CREACION DE RELACIONES
+Las relaciones entre las tablas se hacen con las anotaciones de JPA
+        @OneToMany - Relacion uno a muchos
+        @ManyToOne - Relacion muchos a uno
+        @ManyToMany - Relacion muchos a muchos
+        @OneToOne - Relacion uno a uno
+
+Una vez puestos los tipo de Relacion, en la anotacion @JoinColumn, hay que indicar
+ a que columna se hace refencia.
+ Por ejemplo - en la clase OrderItemEntity, la columna "id_order" hace referencia a la tabla "order"
+        y la columna "pizza_id" hace referencia a la tabla "pizza". Esto se le indica en el atributo
+        pizza de la clase OrderItemEntity, que es de tipo PizzaEntity(en el JoinColumn le indicamos
+        primero el nombre de la columna de la tabla en la que estamos, y luego el nombre de la columna a
+        al que se hace referencia)
