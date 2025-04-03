@@ -34,5 +34,5 @@ public class PizzaEntity {
     private Boolean vegan;
 
     @Column(nullable = false) //Indicamos que no puede ser falso
-    private Boolean avaliable;
+    private Boolean available;
 }
