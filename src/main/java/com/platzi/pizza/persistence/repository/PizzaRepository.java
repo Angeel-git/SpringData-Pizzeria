@@ -13,4 +13,7 @@ public interface PizzaRepository extends ListCrudRepository<PizzaEntity, Integer
     * En JPA el nombre de los metodos de los Reposirtory, ya le indica a la base de datos la columna y el valor
     * que queremos comparar*/
     List<PizzaEntity> findByAvailableFalse();
+
+    /*Metodo par obtener las pizzas que tengan algun ingrediente(En la descripcion se le pasan los ingedientes)*/
+    List<PizzaEntity> findByAvailableTrueAndDescriptionContainingIgnoreCase(String description);
 }

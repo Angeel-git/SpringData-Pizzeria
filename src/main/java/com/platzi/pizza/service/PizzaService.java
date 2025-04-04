@@ -48,4 +48,10 @@ public class PizzaService {
     public boolean exists(int id){
         return this.pizzaRepository.existsById(id);
     }
+
+
+    //Consulta para saber las pizzas que tienen un ingrediente
+    public List<PizzaEntity> getWith(String ingrediente){
+        return this.pizzaRepository.findByAvailableTrueAndDescriptionContainingIgnoreCase(ingrediente);
+    }
 }

@@ -62,4 +62,10 @@ public class PizzaController {
         this.pizzaService.deletePizza(id);
         return ResponseEntity.ok().build();
     }
+
+    //Llamad al metodo de la clase PizzaService para saber las pizzas que tienen un ingrediente
+    @GetMapping("/whith/{ingrediente}")
+     public ResponseEntity<List<PizzaEntity>> getWith(@PathVariable String ingrediente){
+        return ResponseEntity.ok(this.pizzaService.getWith(ingrediente));
+    }
 }
