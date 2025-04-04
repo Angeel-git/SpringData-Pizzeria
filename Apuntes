@@ -85,4 +85,12 @@ Pasos una vez creadas tods las clases necesarias para hacer las consultas:
         Seguridad: La lógica de seguridad y validación de datos puede ser centralizada en la capa de servicio,
         asegurando que todas las operaciones pasen por las mismas verificaciones.
 
+--------------------------------------------------------------------------------------------------------------
 
+                                                QUERY METHODS
+Los Query Methods en Spring Data JPA permiten definir consultas utilizando el nombre del método en las interfaces
+de repositorio. El nombre del método sigue una convención que indica a JPA cómo construir la consulta.
+Esto facilita la creación de consultas sin necesidad de escribir SQL explícito.
+
+    POR EJEMPLO -> En la Interfaz PizzaRepository, cree un metodo "findByAvailableFalse" para buscar las pizzas que
+    no están disponibles.
