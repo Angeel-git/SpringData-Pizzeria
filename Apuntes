@@ -34,7 +34,7 @@ Tambien podemos usar las notaciones "@Getter  @Setter  @NoArgsConstructor" para 
 En caso de que exista una relacion con 1 PK compuesta, hay que crear una clase que contenga las PK
         y luego usar la notacion "@EmbeddedId" para indicar que es una PK compuesta
         y "@MapsId" para indicar que es una relacion con otra tabla
-                             (Por ejemplo, en la clase OrderItemIdentity)
+                             (Por ejemplo, en la clase OrderItemEntity)
 
 --------------------------------------------------------------------------------------------------------------
 
@@ -52,3 +52,37 @@ Una vez puestos los tipo de Relacion, en la anotacion @JoinColumn, hay que indic
         pizza de la clase OrderItemEntity, que es de tipo PizzaEntity(en el JoinColumn le indicamos
         primero el nombre de la columna de la tabla en la que estamos, y luego el nombre de la columna a
         al que se hace referencia)
+
+--------------------------------------------------------------------------------------------------------------
+
+                                           CONSULTAS
+Pasos una vez creadas tods las clases necesarias para hacer las consultas:
+        1. Le indicamos a la interfaz Repository que va a extender de ListCrudRepository
+        2. Creamos los metodos en la Interfaz para obtener la info que queremos de la bd(los que no vienen por defecto)
+           (Por ejemplo, en la clase PizzaRepository, creamos el metodo findByAvailableFalse para buscar las no diponible)
+        3. En la clase service, creamos una instancia de la interfaz Repository para utilizar los metodos
+           Una vez tenemos la instancia, podemos usar los metodos de la interfaz Repository
+        4. En la clase controller, creamos una instancia de la clase service para utilizar los metodos
+           Una vez tenemos la instancia, podemos usar los metodos de la clase service
+
+ -> ¿PORQUE es mejor tener una clase "service" para llamar a los metodos de la clase PizzaRepository y luego desde
+ el controller llamar a los metodos de la calse service?
+        Separación de responsabilidades: La capa de servicio permite separar la lógica de negocio de la lógica de
+        acceso a datos. Esto hace que el código sea más modular y fácil de mantener.
+
+        Reutilización de código: La lógica de negocio encapsulada en la capa de servicio puede ser reutilizada por
+        diferentes controladores o incluso por otros servicios.
+
+        Facilidad de prueba: Las clases de servicio pueden ser probadas de manera independiente utilizando pruebas
+        unitarias. Esto facilita la detección de errores y mejora la calidad del código.
+
+        Abstracción: La capa de servicio actúa como una abstracción sobre la capa de acceso a datos. Esto permite
+        cambiar la implementación de la capa de acceso a datos sin afectar a los controladores.
+
+        Manejo de transacciones: La capa de servicio es un buen lugar para manejar transacciones, asegurando que las
+        operaciones de base de datos se realicen de manera atómica.
+
+        Seguridad: La lógica de seguridad y validación de datos puede ser centralizada en la capa de servicio,
+        asegurando que todas las operaciones pasen por las mismas verificaciones.
+
+
