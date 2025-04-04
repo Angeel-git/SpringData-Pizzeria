@@ -94,3 +94,7 @@ Esto facilita la creación de consultas sin necesidad de escribir SQL explícito
 
     POR EJEMPLO -> En la Interfaz PizzaRepository, cree un metodo "findByAvailableFalse" para buscar las pizzas que
     no están disponibles.
+
+
+--------------------------------------------------------------------------------------------------------------
+                                                       @Query
